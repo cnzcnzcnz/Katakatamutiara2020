@@ -36,14 +36,14 @@
             </meta-data>
         </provider>
         <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:name=".ui.BlogpostActivity"
             android:label=""
-            android:launchMode="singleTask"
-            android:parentActivityName=".ui.MainActivity" />
+            android:launchMode="singleTask" />
         <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:name=".ui.ImageActivity"
-            android:label=""
-            android:parentActivityName=".ui.BlogpostActivity"/>
+            android:label="" />
         <activity android:name=".ui.SplashActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>

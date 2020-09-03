@@ -13,6 +13,7 @@ import android.os.Bundle
 import android.os.Environment
 import android.util.DisplayMetrics
 import android.util.Log
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -47,6 +48,11 @@ class ImageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_image)
+
+        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
 
         pDialog = ProgressDialog(this)
 
@@ -213,6 +219,18 @@ class ImageActivity : AppCompatActivity() {
                 builder.setMessage("Gambar sudah terunduh")
                 builder.setNegativeButton("OK", null)
                 builder.show()
+            }
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item!!.itemId){
+            android.R.id.home -> {
+                super.onBackPressed()
+                true
+            }
+            else -> {
+                super.onOptionsItemSelected(item)
             }
         }
     }
